@@ -2,7 +2,7 @@
 	<div :class="[task.reminder ? 'reminder' : '','task']">
 		<div class="head-body">
 		<h3>{{task.text}}</h3>
-		<i class="fas fa-times" style="color: red;"></i>
+		<i @click="deleteBox(task.id)" class="fas fa-times" style="color: red;"></i>
 		</div>
 		<small>{{task.day}}</small>
 	</div>
@@ -13,6 +13,11 @@
 		name:'Task',
 		props:{
 			task:Object
+		},
+		methods:{
+			deleteBox(id){
+				this.$emit('delete-task',id)
+			}
 		}
 	}
 </script>
