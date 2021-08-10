@@ -1,15 +1,51 @@
 <template>
   <div class="container">
     <Header title="Header title" />
+    <Tasks :tasks="tasks" />
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
+import Tasks from './components/Tasks.vue'
 export default {
   name: "App",
   components:{
-    Header
+    Header,
+    Tasks
+  },
+  data(){
+    return{
+      tasks:[]
+    }
+  },
+  created(){
+    this.tasks = [
+     {
+      id:1,
+      text:'CF Real Madrid has created',
+      day:'2nd of march 1899',
+      reminder: true
+     },
+     {
+      id:2,
+      text:'FC Bayern has created',
+      day:'22nd of march 1902',
+      reminder: true
+     },
+     {
+      id:3,
+      text:'Manchester United has created',
+      day:'6nd of march 1893',
+      reminder: true
+     },
+     {
+      id:4,
+      text:'PSG has created',
+      day:'25nd of june 1933',
+      reminder: true
+     }
+    ]
   }
 };
 </script>
